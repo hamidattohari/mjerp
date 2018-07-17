@@ -64,8 +64,15 @@ class Product_movement_detail extends MY_Controller {
 	public function details($woid, $pid)
 	{
 		$pname = $this->pm->get_by_id('id', $pid);
-		$pm_id = $this->pmm->get_by_id('work_orders_id = '.$woid.' AND products_id = ', $pid);
-
+		$pm = $this->pmm->get_by_id('work_orders_id = '.$woid.' AND products_id = ', $pid);
+		if($pm==array())
+		{
+			
+			$pm_id=0;
+		}
+		else{
+			$pm_id=$pm->id;
+		}
 		$data['title'] = "ERP | Product Movement Details";
 		$data['page_title'] = "Product Movement Details <strong>".$pname->name."</strong>";
 		$data['table_title'] = "List Processes";	
@@ -80,10 +87,13 @@ class Product_movement_detail extends MY_Controller {
 		$data['menu'] = $this->get_menu();					
 		$data['woid'] = $woid;					
 		$data['pid'] = $pid;				
-		$data['pm_id'] = $pm_id->id;				
+		$data['pm_id'] = $pm_id;				
 		$data['csrf'] = $this->csrf;	
 		$data['button'] = $this->prcm->get_data($pid);	
 		$this->load->view('layouts/master', $data);
+
+
+		
 	}
 
 	public function view_data($woid, $pid, $prid){
