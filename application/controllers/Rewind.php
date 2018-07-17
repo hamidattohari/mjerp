@@ -34,7 +34,7 @@ class Rewind extends MY_Controller {
 	}
 
 	public function view_data(){
-		$result = $this->cm->get_output_data();
+		$result = $this->rm->get_output_data();
         $data = array();
         $count = 0;
         foreach($result['data'] as $value){
@@ -58,12 +58,12 @@ class Rewind extends MY_Controller {
 			'code' => strtoupper($this->input->post('code')),
 			'date' => ucfirst($this->input->post('date')),			
 		);
-		$inserted = $this->cm->add($data);
+		$inserted = $this->rm->add($data);
 		echo json_encode(array('status' => $inserted));
 	}
 
 	function get_by_id($id){
-		$detail = $this->cm->get_by_id('id', $id);
+		$detail = $this->rm->get_by_id('id', $id);
 		echo json_encode($detail);
 	}
 
@@ -72,12 +72,12 @@ class Rewind extends MY_Controller {
 			'code' => strtoupper($this->input->post('code')),
 			'date' => ucfirst($this->input->post('date')),
 		);
-		$status = $this->cm->update('id', $this->input->post('change_id'), $data);
+		$status = $this->rm->update('id', $this->input->post('change_id'), $data);
 		echo json_encode(array('status' => $status));
    }
 
 	function delete($id){        
-		$status = $this->cm->delete2('id', $id);
+		$status = $this->rm->delete2('id', $id);
 		echo json_encode(array('status' => $status));
 	}
 
