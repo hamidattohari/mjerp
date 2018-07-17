@@ -25,6 +25,9 @@ class Menu_model extends MY_Model {
 				'Products' => array(
 					'link' => 'products',
 				),
+				'Unfinished Products' => array(
+					'link' => 'unfinished_products',
+				),
 				'Usage Category' => array(
 					'link' => 'usage_categories',
 				),
@@ -45,9 +48,6 @@ class Menu_model extends MY_Model {
 				),
 				'Uom' => array(
 					'link' => 'uom',
-				),
-				'Uom Converter' => array(
-					'link' => 'uom_converter',
 				),
 				'Currency' => array(
 					'link' => 'currency',
@@ -88,20 +88,8 @@ class Menu_model extends MY_Model {
 				'Work Order' => array(
 					'link' => 'work_orders',
 				),
-				'Pickup Material' => array(
-					'link' => 'pickup_material',
-				),
-				'Return Material' => array(
-					'link' => 'return_material',
-				),
-				'Pickup Non Material' => array(
-					'link' => 'pickup_nonmaterial',
-				),
-				'Return Non Material' => array(
-					'link' => 'return_nonmaterial',
-				),
-				'Product Movement' => array(
-					'link' => 'product_movement',
+				'Rewind' => array(
+					'link' => 'rewind',
 				),
 				'HPP' => array(
 					'link' => 'hpp',
